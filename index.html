@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[BrandName] VPN – Download</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --brand:#2563EB;--brand-d:#1D4ED8;--brand-bg:#EFF6FF;--brand-light:#DBEAFE;
+  --green:#16A34A;--green-bg:#F0FDF4;--green-bd:#BBF7D0;
+  --text:#0F172A;--text2:#475569;--text3:#94A3B8;
+  --border:#E2E8F0;--border2:#CBD5E1;
+  --bg:#FFFFFF;--bg2:#F8FAFC;--bg3:#F1F5F9;
+  --r:8px;--rl:12px;--rxl:16px;
+  --c:1200px;
+}
+*{font-family:-apple-system,BlinkMacSystemFont,'Inter','Segoe UI',sans-serif}
+body{background:#fff;color:var(--text);line-height:1.6;min-width:1080px}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:var(--c);margin:0 auto;padding:0 60px}
+
+/* ── NAV ── */
+.nav{position:sticky;top:0;z-index:300;height:64px;background:rgba(255,255,255,.97);border-bottom:1px solid var(--border);display:flex;align-items:center}
+.nav-in{display:flex;align-items:center;width:100%}
+.logo{display:flex;align-items:center;gap:8px;font-size:17px;font-weight:700;color:var(--text);cursor:pointer;flex-shrink:0}
+.logo-icon{width:28px;height:28px;background:var(--brand);border-radius:7px;display:flex;align-items:center;justify-content:center}
+.logo-icon svg{width:16px;height:16px;fill:#fff}
+.nav-links{display:flex;gap:4px;margin:0 auto}
+.nav-links a{font-size:14px;color:var(--text2);padding:6px 12px;border-radius:var(--r);font-weight:500;transition:background .15s,color .15s;cursor:pointer}
+.nav-links a:hover{background:var(--bg3);color:var(--text)}
+.nav-links a.on{color:var(--brand);background:var(--brand-bg)}
+.nav-r{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.btn-ghost{font-size:14px;font-weight:500;color:var(--text2);padding:8px 14px;border-radius:var(--r);border:1px solid var(--border);background:#fff;cursor:pointer}
+.btn-ghost:hover{border-color:var(--border2)}
+.btn-primary{font-size:14px;font-weight:600;color:#fff;padding:8px 18px;border-radius:var(--r);background:var(--brand);border:none;cursor:pointer}
+.btn-primary:hover{background:var(--brand-d)}
+
+/* ── PAGES ── */
+.page{display:none}.page.on{display:block}
+
+/* ── MAIN HERO ── */
+.m-hero{padding:64px 0 56px;border-bottom:1px solid var(--border);margin-top:64px}
+.m-hero-in{display:grid;grid-template-columns:1fr 460px;gap:72px;align-items:center}
+.m-badge{display:inline-flex;align-items:center;gap:6px;background:var(--green-bg);color:var(--green);font-size:12px;font-weight:600;padding:4px 10px;border-radius:20px;border:1px solid var(--green-bd);margin-bottom:20px}
+.m-badge b{width:6px;height:6px;border-radius:50%;background:var(--green)}
+.m-hero h1{font-size:44px;font-weight:800;letter-spacing:-1px;line-height:1.15;margin-bottom:18px}
+.m-hero h1 em{font-style:normal;color:var(--brand)}
+.m-sub{font-size:17px;color:var(--text2);line-height:1.65;margin-bottom:32px;max-width:500px}
+.qbtns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:24px}
+.qbtn{display:flex;align-items:center;gap:10px;height:46px;padding:0 16px;border:1px solid var(--border);border-radius:var(--r);background:#fff;font-size:14px;font-weight:500;color:var(--text);cursor:pointer;transition:all .15s}
+.qbtn:hover,.qbtn.on{border-color:var(--brand);background:var(--brand-bg);color:var(--brand)}
+.qbtn-ico{font-size:18px;width:24px;text-align:center}
+.qbtn-lbl{flex:1;text-align:left}
+.qbtn-arr{font-size:11px;color:var(--text3)}
+.qbtn:hover .qbtn-arr,.qbtn.on .qbtn-arr{color:var(--brand)}
+.m-proof{display:flex;align-items:center;gap:20px;padding-top:24px;border-top:1px solid var(--border)}
+.proof-item{display:flex;flex-direction:column;gap:2px}
+.proof-val{font-size:18px;font-weight:700}
+.proof-lbl{font-size:12px;color:var(--text3)}
+.proof-div{width:1px;height:32px;background:var(--border)}
+.stars{color:#F59E0B;font-size:13px}
+.hv{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rxl);overflow:hidden}
+.hv-bar{height:42px;background:#fff;border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 16px;gap:6px}
+.hv-dot{width:10px;height:10px;border-radius:50%}
+.hv-ttl{margin:0 auto;font-size:12px;font-weight:600;color:var(--text3)}
+.hv-body{padding:16px}
+.hv-status{background:#fff;border:1px solid var(--border);border-radius:var(--rl);padding:18px;text-align:center;margin-bottom:12px}
+.hv-circle{width:72px;height:72px;border-radius:50%;background:var(--brand);margin:0 auto 10px;display:flex;align-items:center;justify-content:center}
+.hv-circle svg{width:32px;height:32px;fill:#fff}
+.hv-on{font-size:13px;font-weight:700;color:var(--green)}
+.hv-srv{font-size:12px;color:var(--text3);margin-top:2px}
+.hv-spd{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.hv-spd-cell{background:var(--bg2);border-radius:var(--r);padding:8px 10px;font-size:11px;color:var(--text2)}
+.hv-spd-v{font-size:14px;font-weight:700;color:var(--text);margin-top:1px}
+.hv-srvs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.hv-s{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:9px 11px;display:flex;align-items:center;gap:7px;font-size:11px;color:var(--text2)}
+.hv-flag{font-size:15px}
+.hv-sn{font-size:12px;font-weight:600;color:var(--text)}
+.hv-ping{font-size:10px;color:var(--text3)}
+.ping-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+
+/* ── SHARED SECTION ── */
+.sec{padding:72px 0}
+.sec-alt{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.sec-lbl{font-size:12px;font-weight:700;letter-spacing:1.2px;color:var(--brand);text-transform:uppercase;margin-bottom:10px}
+.sec-h2{font-size:30px;font-weight:800;letter-spacing:-.6px;line-height:1.25;margin-bottom:12px}
+.sec-lead{font-size:16px;color:var(--text2);max-width:520px}
+.sec-c{text-align:center;margin-bottom:48px}
+.sec-c .sec-lead{margin:0 auto}
+
+/* ── PLATFORM GRID (main) ── */
+.plat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.pc{border:1px solid var(--border);border-radius:var(--rl);padding:20px;cursor:pointer;transition:all .18s;background:#fff;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden}
+.pc:hover{border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-bg)}
+.pc-top{display:flex;align-items:center;gap:11px}
+.pc-ico{width:40px;height:40px;border-radius:10px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.pc-name{font-size:15px;font-weight:700}
+.pc-os{font-size:12px;color:var(--text3);margin-top:1px}
+.pc-desc{font-size:13px;color:var(--text2);line-height:1.5}
+.pc-cta{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+.pc-cta-lbl{font-size:13px;font-weight:600;color:var(--brand)}
+.pc-arr{font-size:13px;color:var(--brand)}
+.pc-pop::before{content:'Popular';position:absolute;top:10px;right:10px;font-size:10px;font-weight:700;background:var(--brand);color:#fff;padding:2px 8px;border-radius:20px}
+
+/* ── STATS BAR ── */
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;margin-top:48px}
+.stat-c{background:#fff;padding:24px;text-align:center}
+.stat-v{font-size:28px;font-weight:800;color:var(--brand);letter-spacing:-1px}
+.stat-l{font-size:12px;color:var(--text3);margin-top:3px}
+
+/* ── TRUST ── */
+.trust{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:24px 0}
+.trust-in{display:flex;align-items:center;gap:40px;justify-content:center}
+.trust-lbl{font-size:12px;color:var(--text3);font-weight:600;white-space:nowrap}
+.trust-items{display:flex;gap:32px}
+.trust-item{font-size:13px;font-weight:700;color:var(--text3);opacity:.5;letter-spacing:.5px}
+
+/* ── WHY / FEATS ── */
+.why-grid,.feat-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.feat-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.why-card,.feat-card{border:1px solid var(--border);border-radius:var(--rl);padding:24px;background:#fff}
+.why-ico{width:44px;height:44px;border-radius:11px;background:var(--brand-bg);display:flex;align-items:center;justify-content:center;margin-bottom:14px;font-size:20px}
+.why-t{font-size:15px;font-weight:700;margin-bottom:7px}
+.why-d{font-size:14px;color:var(--text2);line-height:1.6}
+.feat-ico{width:34px;height:34px;border-radius:8px;background:var(--bg3);display:flex;align-items:center;justify-content:center;margin-bottom:12px;font-size:16px}
+.feat-t{font-size:14px;font-weight:700;margin-bottom:5px}
+.feat-d{font-size:13px;color:var(--text2);line-height:1.55}
+.feat-badge{display:inline-block;margin-top:8px;font-size:11px;font-weight:600;padding:2px 8px;border-radius:20px;background:var(--green-bg);color:var(--green);border:1px solid var(--green-bd)}
+
+/* ── HOW STEPS (main) ── */
+.how-row{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
+.how-row::before{content:'';position:absolute;top:20px;left:10%;right:10%;height:1px;background:var(--border);z-index:0}
+.how-step{text-align:center;position:relative;z-index:1;padding:0 8px}
+.how-num{width:40px;height:40px;border-radius:50%;background:var(--brand);color:#fff;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;border:3px solid #fff;outline:1px solid var(--brand)}
+.how-t{font-size:15px;font-weight:700;margin-bottom:7px}
+.how-d{font-size:13px;color:var(--text2)}
+
+/* ── FAQ ── */
+.faq-2col{display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+.faq-col .faq-item{border-bottom:1px solid var(--border)}
+.faq-btn{width:100%;background:none;border:none;text-align:left;padding:16px 0;font-size:14px;font-weight:600;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:inherit}
+.faq-ico{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--border2);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--text3);font-size:14px;transition:all .2s;line-height:1}
+.faq-ico.op{background:var(--brand);border-color:var(--brand);color:#fff}
+.faq-ans{font-size:13px;color:var(--text2);line-height:1.7;padding-bottom:14px;display:none}
+.faq-ans.op{display:block}
+
+/* ── PRICING ── */
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.p-card{border:1px solid var(--border);border-radius:var(--rl);padding:26px;background:#fff;position:relative}
+.p-card.feat{border:2px solid var(--brand)}
+.p-badge{font-size:11px;font-weight:700;background:var(--brand);color:#fff;padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:12px}
+.p-plan{font-size:15px;font-weight:700;margin-bottom:3px}
+.p-desc{font-size:13px;color:var(--text3);margin-bottom:18px}
+.p-val{font-size:30px;font-weight:800;letter-spacing:-1px}
+.p-val span{font-size:13px;font-weight:500;color:var(--text3)}
+.p-period{font-size:12px;color:var(--text3);margin-bottom:18px}
+.p-feats{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:20px;font-size:13px;color:var(--text2)}
+.p-feats li{display:flex;align-items:center;gap:7px}
+.chk{width:15px;height:15px;border-radius:50%;background:var(--green-bg);color:var(--green);font-size:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:700;border:1px solid var(--green-bd)}
+.p-btn{width:100%;height:42px;border-radius:var(--r);font-size:14px;font-weight:600;cursor:pointer;border:1px solid var(--border);background:#fff;color:var(--text);font-family:inherit;transition:all .15s}
+.p-card.feat .p-btn{background:var(--brand);color:#fff;border-color:var(--brand)}
+.p-btn:hover{background:var(--bg3)}
+.p-card.feat .p-btn:hover{background:var(--brand-d)}
+
+/* ── CTA BANNER ── */
+.cta-banner{padding:72px 0;background:var(--bg2);border-top:1px solid var(--border)}
+.cta-in{text-align:center;max-width:580px;margin:0 auto}
+.cta-in h2{font-size:32px;font-weight:800;letter-spacing:-.6px;margin-bottom:12px}
+.cta-in p{font-size:16px;color:var(--text2);margin-bottom:28px}
+.cta-btns{display:flex;gap:12px;justify-content:center}
+.btn-lg{height:48px;padding:0 26px;font-size:15px;font-weight:600;border-radius:var(--r);cursor:pointer;border:none;font-family:inherit}
+.btn-lg-p{background:var(--brand);color:#fff}
+.btn-lg-p:hover{background:var(--brand-d)}
+.btn-lg-o{background:#fff;color:var(--text2);border:1px solid var(--border)!important}
+.btn-lg-o:hover{background:var(--bg3)}
+.cta-note{font-size:13px;color:var(--text3);margin-top:14px}
+
+/* ── FOOTER ── */
+footer{padding:52px 0 28px;border-top:1px solid var(--border)}
+.ft{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:40px;padding-bottom:36px;border-bottom:1px solid var(--border)}
+.ft-brand p{font-size:13px;color:var(--text2);line-height:1.65;margin-top:10px;max-width:200px}
+.ft-col h5{font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--text3);margin-bottom:14px}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.ft-col a{font-size:14px;color:var(--text2)}
+.ft-col a:hover{color:var(--text)}
+.ft-bot{display:flex;justify-content:space-between;padding-top:24px}
+.ft-copy{font-size:13px;color:var(--text3)}
+.ft-links{display:flex;gap:16px}
+.ft-links a{font-size:13px;color:var(--text3)}
+
+/* ══════════════ SUB-PAGE STYLES ══════════════ */
+.crumb{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text3);padding:16px 0 0}
+.crumb .cl{color:var(--text2);cursor:pointer}.crumb .cl:hover{color:var(--brand)}
+.crumb-sep{font-size:11px}
+
+/* SUB HERO */
+.sh{padding:56px 0 0;margin-top:64px}
+.sh-in{display:grid;grid-template-columns:1fr 420px;gap:64px;align-items:center;padding-bottom:56px;border-bottom:1px solid var(--border)}
+.sh-platform-badge{display:inline-flex;align-items:center;gap:6px;background:var(--brand-bg);color:var(--brand);font-size:12px;font-weight:700;padding:4px 12px;border-radius:20px;border:1px solid var(--brand-light);margin-bottom:16px;letter-spacing:.3px}
+.sh h1{font-size:36px;font-weight:800;letter-spacing:-.7px;line-height:1.2;margin-bottom:12px}
+.sh-sub{font-size:17px;color:var(--text2);line-height:1.65;margin-bottom:28px}
+.sh-dl-row{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.dl-p{display:flex;align-items:center;justify-content:center;gap:8px;height:52px;background:var(--brand);color:#fff;border:none;border-radius:var(--r);font-size:15px;font-weight:600;cursor:pointer;width:100%;font-family:inherit}
+.dl-p:hover{background:var(--brand-d)}
+.dl-s{display:flex;align-items:center;justify-content:center;gap:8px;height:46px;background:#fff;color:var(--text2);border:1px solid var(--border);border-radius:var(--r);font-size:14px;font-weight:500;cursor:pointer;width:100%;font-family:inherit}
+.dl-s:hover{background:var(--bg3);border-color:var(--border2)}
+.meta-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.meta-pill{font-size:12px;padding:3px 10px;border-radius:20px;border:1px solid var(--border);color:var(--text2);background:var(--bg2)}
+.sh-rating{display:flex;align-items:center;gap:8px;padding-top:16px;border-top:1px solid var(--border)}
+.sh-rating .stars{font-size:13px}
+.sh-rating span{font-size:13px;color:var(--text2)}
+
+/* SUB HERO RIGHT — APP PREVIEW MOCK */
+.app-mock{border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;background:var(--bg2)}
+.am-bar{height:38px;background:#fff;border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 14px;gap:5px}
+.am-dot{width:9px;height:9px;border-radius:50%}
+.am-ttl{margin:0 auto;font-size:11px;font-weight:600;color:var(--text3)}
+.am-body{padding:14px}
+.am-screen{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:16px;text-align:center}
+.am-conn{font-size:13px;font-weight:700;color:var(--green);margin-bottom:4px}
+.am-loc{font-size:11px;color:var(--text3)}
+.am-speeds{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px}
+.am-spd{background:var(--bg2);border-radius:6px;padding:7px 9px;font-size:10px;color:var(--text2)}
+.am-spd-v{font-size:13px;font-weight:700;color:var(--text);margin-top:1px}
+.am-srvs{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}
+.am-srv{background:#fff;border:1px solid var(--border);border-radius:6px;padding:8px 10px;display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text2)}
+.am-flag{font-size:13px}
+.am-sn{font-size:11px;font-weight:600;color:var(--text)}
+.am-ping{font-size:10px;color:var(--text3)}
+.am-pdot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
+
+/* SCREENSHOT SECTION */
+.ss-wrap{margin:56px 0;border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;background:var(--bg3)}
+.ss-inner{padding:32px;display:flex;flex-direction:column;gap:12px}
+.ss-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.ss-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:16px;font-size:13px;color:var(--text2);min-height:100px;display:flex;flex-direction:column;gap:6px}
+.ss-card-title{font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px}
+.ss-bar{height:6px;border-radius:3px;background:var(--bg3);overflow:hidden;margin-top:4px}
+.ss-bar-fill{height:100%;border-radius:3px;background:var(--brand)}
+.ss-tag{display:inline-block;font-size:10px;font-weight:600;padding:2px 6px;border-radius:4px;background:var(--green-bg);color:var(--green)}
+
+/* DOWNLOAD BOX */
+.dl-box{border:1px solid var(--border);border-radius:var(--rl);padding:28px;background:#fff;margin:0}
+.dl-box-head{display:flex;align-items:center;gap:16px;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+.dl-box-ico{font-size:36px}
+.dl-box-t{font-size:18px;font-weight:700}
+.dl-box-sub{font-size:13px;color:var(--text3);margin-top:2px}
+.dl-box-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.dl-meta-item{background:var(--bg2);border-radius:var(--r);padding:12px 14px}
+.dl-meta-lbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text3);margin-bottom:3px}
+.dl-meta-val{font-size:13px;font-weight:600;color:var(--text)}
+.dl-btns-row{display:flex;gap:10px}
+.dl-btn-p{flex:1;height:48px;background:var(--brand);color:#fff;border:none;border-radius:var(--r);font-size:14px;font-weight:600;cursor:pointer;font-family:inherit}
+.dl-btn-p:hover{background:var(--brand-d)}
+.dl-btn-s{flex:1;height:48px;background:#fff;color:var(--text2);border:1px solid var(--border);border-radius:var(--r);font-size:14px;font-weight:500;cursor:pointer;font-family:inherit}
+.dl-btn-s:hover{background:var(--bg3);border-color:var(--border2)}
+
+/* VERTICAL STEPS */
+.vsteps{display:flex;flex-direction:column;gap:0;position:relative}
+.vsteps::before{content:'';position:absolute;left:18px;top:36px;bottom:36px;width:1px;background:var(--border);z-index:0}
+.vstep{display:flex;gap:20px;padding-bottom:32px;position:relative;z-index:1}
+.vstep:last-child{padding-bottom:0}
+.vstep-num{width:36px;height:36px;border-radius:50%;background:var(--brand);color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:3px solid #fff;outline:1px solid var(--brand)}
+.vstep-body{padding-top:5px}
+.vstep-t{font-size:15px;font-weight:700;margin-bottom:6px}
+.vstep-d{font-size:14px;color:var(--text2);line-height:1.6}
+.vstep-code{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:10px 14px;font-family:monospace;font-size:13px;color:var(--text);margin-top:8px}
+
+/* BENEFITS */
+.ben-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.ben-card{border:1px solid var(--border);border-radius:var(--rl);padding:22px;background:#fff}
+.ben-ico{font-size:24px;margin-bottom:10px}
+.ben-t{font-size:15px;font-weight:700;margin-bottom:6px}
+.ben-d{font-size:13px;color:var(--text2);line-height:1.6}
+
+/* USE CASES */
+.uc-row{display:flex;gap:16px;flex-wrap:wrap}
+.uc-card{flex:1;min-width:160px;border:1px solid var(--border);border-radius:var(--rl);padding:20px;background:#fff;text-align:center}
+.uc-ico{font-size:28px;margin-bottom:8px}
+.uc-t{font-size:14px;font-weight:700;margin-bottom:5px}
+.uc-d{font-size:13px;color:var(--text2)}
+
+/* RELATED */
+.rel-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.rel-card{border:1px solid var(--border);border-radius:var(--rl);padding:18px;background:#fff;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:12px}
+.rel-card:hover{border-color:var(--brand);background:var(--brand-bg)}
+.rel-ico{font-size:22px}
+.rel-name{font-size:14px;font-weight:600}
+.rel-os{font-size:12px;color:var(--text3)}
+.rel-arr{font-size:12px;color:var(--brand);margin-left:auto}
+</style>
+</head>
+<body>
+
+<!-- ══════════ NAV ══════════ -->
+<nav class="nav">
+  <div class="wrap nav-in">
+    <div class="logo" onclick="showMain()">
+      <div class="logo-icon"><svg viewBox="0 0 16 16"><path d="M8 1L14 4V8C14 11.3 11.3 14 8 15C4.7 14 2 11.3 2 8V4L8 1Z"/></svg></div>
+      [BrandName] VPN
+    </div>
+    <div class="nav-links">
+      <a>Features</a><a>Pricing</a><a class="on">Download</a><a>Servers</a><a>Blog</a><a>Support</a>
+    </div>
+    <div class="nav-r">
+      <button class="btn-ghost">Log in</button>
+      <button class="btn-primary">Get VPN — Free Trial</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════ MAIN PAGE ══════════════════════ -->
+<div id="pg-main" class="page on">
+<section class="m-hero">
+  <div class="wrap m-hero-in">
+    <div>
+      <div class="m-badge"><b></b> All platforms supported</div>
+      <h1>Download VPN for<br><em>Every Device</em> You Own</h1>
+      <p class="m-sub">One subscription. Five devices. Military-grade encryption on Windows, Mac, iOS, Android, Linux, and more.</p>
+      <div class="qbtns">
+        <button class="qbtn" onclick="showSub('windows')"><span class="qbtn-ico">🪟</span><span class="qbtn-lbl">Windows</span><span class="qbtn-arr">→</span></button>
+        <button class="qbtn" onclick="showSub('mac')"><span class="qbtn-ico">🍎</span><span class="qbtn-lbl">Mac</span><span class="qbtn-arr">→</span></button>
+        <button class="qbtn" onclick="showSub('android')"><span class="qbtn-ico">🤖</span><span class="qbtn-lbl">Android</span><span class="qbtn-arr">→</span></button>
+        <button class="qbtn" onclick="showSub('ios')"><span class="qbtn-ico">📱</span><span class="qbtn-lbl">iOS</span><span class="qbtn-arr">→</span></button>
+        <button class="qbtn" onclick="showSub('linux')"><span class="qbtn-ico">🐧</span><span class="qbtn-lbl">Linux</span><span class="qbtn-arr">→</span></button>
+        <button class="qbtn" onclick="showSub('chrome')"><span class="qbtn-ico">🌐</span><span class="qbtn-lbl">Chrome Extension</span><span class="qbtn-arr">→</span></button>
+        <button class="qbtn" onclick="showSub('firefox')"><span class="qbtn-ico">🦊</span><span class="qbtn-lbl">Firefox Extension</span><span class="qbtn-arr">→</span></button>
+        <button class="qbtn" onclick="showSub('smarttv')"><span class="qbtn-ico">📺</span><span class="qbtn-lbl">Smart TV</span><span class="qbtn-arr">→</span></button>
+      </div>
+      <div class="m-proof">
+        <div class="proof-item"><div class="stars">★★★★★</div><div class="proof-val">4.8/5</div><div class="proof-lbl">Store rating</div></div>
+        <div class="proof-div"></div>
+        <div class="proof-item"><div class="proof-val">10M+</div><div class="proof-lbl">Active users</div></div>
+        <div class="proof-div"></div>
+        <div class="proof-item"><div class="proof-val">60+</div><div class="proof-lbl">Countries</div></div>
+        <div class="proof-div"></div>
+        <div class="proof-item"><div class="proof-val">1,000+</div><div class="proof-lbl">Servers</div></div>
+      </div>
+    </div>
+    <div class="hv">
+      <div class="hv-bar"><div class="hv-dot" style="background:#F87171"></div><div class="hv-dot" style="background:#FBBF24"></div><div class="hv-dot" style="background:#34D399"></div><div class="hv-ttl">[BrandName] VPN</div></div>
+      <div class="hv-body">
+        <div class="hv-status">
+          <div class="hv-circle"><svg viewBox="0 0 36 36"><path d="M18 3L30 8V16C30 23 24.6 29.4 18 31C11.4 29.4 6 23 6 16V8L18 3Z"/></svg></div>
+          <div class="hv-on">● Connected — Protected</div>
+          <div class="hv-srv">Frankfurt, Germany · WireGuard®</div>
+          <div class="hv-spd"><div class="hv-spd-cell"><div>Upload</div><div class="hv-spd-v">128 Mbps</div></div><div class="hv-spd-cell"><div>Download</div><div class="hv-spd-v">342 Mbps</div></div></div>
+        </div>
+        <div class="hv-srvs">
+          <div class="hv-s"><span class="hv-flag">🇩🇪</span><div><div class="hv-sn">Frankfurt</div><div class="hv-ping">12 ms</div></div><div class="ping-dot" style="background:#16A34A"></div></div>
+          <div class="hv-s"><span class="hv-flag">🇺🇸</span><div><div class="hv-sn">New York</div><div class="hv-ping">89 ms</div></div><div class="ping-dot" style="background:#F59E0B"></div></div>
+          <div class="hv-s"><span class="hv-flag">🇯🇵</span><div><div class="hv-sn">Tokyo</div><div class="hv-ping">148 ms</div></div><div class="ping-dot" style="background:#F59E0B"></div></div>
+          <div class="hv-s"><span class="hv-flag">🇸🇬</span><div><div class="hv-sn">Singapore</div><div class="hv-ping">210 ms</div></div><div class="ping-dot" style="background:#F87171"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trust"><div class="wrap trust-in"><div class="trust-lbl">AS FEATURED IN</div><div class="trust-items"><span class="trust-item">WIRED</span><span class="trust-item">TechRadar</span><span class="trust-item">PCMag</span><span class="trust-item">Forbes</span><span class="trust-item">Tom's Guide</span><span class="trust-item">CNET</span></div></div></div>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-c"><div class="sec-lbl">All platforms</div><h2 class="sec-h2">Pick your device</h2><p class="sec-lead">Available on every major platform. One account, five devices, unlimited protection.</p></div>
+    <div class="plat-grid">
+      <div class="pc pc-pop" onclick="showSub('windows')"><div class="pc-top"><div class="pc-ico">🪟</div><div><div class="pc-name">Windows</div><div class="pc-os">Win 10 / 11</div></div></div><div class="pc-desc">Full-featured app with kill switch, split tunneling, and auto-connect.</div><div class="pc-cta"><span class="pc-cta-lbl">Download</span><span class="pc-arr">→</span></div></div>
+      <div class="pc" onclick="showSub('mac')"><div class="pc-top"><div class="pc-ico">🍎</div><div><div class="pc-name">Mac</div><div class="pc-os">macOS 12+</div></div></div><div class="pc-desc">Native Apple Silicon build. Optimized for M1, M2, and M3 chips.</div><div class="pc-cta"><span class="pc-cta-lbl">Download</span><span class="pc-arr">→</span></div></div>
+      <div class="pc pc-pop" onclick="showSub('android')"><div class="pc-top"><div class="pc-ico">🤖</div><div><div class="pc-name">Android</div><div class="pc-os">Android 8+</div></div></div><div class="pc-desc">Lightweight, battery-efficient with per-app VPN and threat protection.</div><div class="pc-cta"><span class="pc-cta-lbl">Download</span><span class="pc-arr">→</span></div></div>
+      <div class="pc" onclick="showSub('ios')"><div class="pc-top"><div class="pc-ico">📱</div><div><div class="pc-name">iOS</div><div class="pc-os">iOS 15+</div></div></div><div class="pc-desc">IKEv2 and WireGuard® for iPhone and iPad. One-tap connect.</div><div class="pc-cta"><span class="pc-cta-lbl">Download</span><span class="pc-arr">→</span></div></div>
+      <div class="pc" onclick="showSub('linux')"><div class="pc-top"><div class="pc-ico">🐧</div><div><div class="pc-name">Linux</div><div class="pc-os">Ubuntu / Debian / Fedora</div></div></div><div class="pc-desc">CLI + GUI client. Full terminal control with iptables kill switch.</div><div class="pc-cta"><span class="pc-cta-lbl">Download</span><span class="pc-arr">→</span></div></div>
+      <div class="pc" onclick="showSub('chrome')"><div class="pc-top"><div class="pc-ico">🌐</div><div><div class="pc-name">Chrome</div><div class="pc-os">Chrome 100+</div></div></div><div class="pc-desc">Fast browser extension with WebRTC leak protection.</div><div class="pc-cta"><span class="pc-cta-lbl">Add extension</span><span class="pc-arr">→</span></div></div>
+      <div class="pc" onclick="showSub('firefox')"><div class="pc-top"><div class="pc-ico">🦊</div><div><div class="pc-name">Firefox</div><div class="pc-os">Firefox 100+</div></div></div><div class="pc-desc">Block trackers and encrypt Firefox traffic in one click.</div><div class="pc-cta"><span class="pc-cta-lbl">Add extension</span><span class="pc-arr">→</span></div></div>
+      <div class="pc" onclick="showSub('smarttv')"><div class="pc-top"><div class="pc-ico">📺</div><div><div class="pc-name">Smart TV</div><div class="pc-os">Android TV / Fire TV</div></div></div><div class="pc-desc">Streaming-optimized. Unblock Netflix, Disney+, and more on TV.</div><div class="pc-cta"><span class="pc-cta-lbl">Learn more</span><span class="pc-arr">→</span></div></div>
+    </div>
+    <div class="stats-bar"><div class="stat-c"><div class="stat-v">10M+</div><div class="stat-l">Active users worldwide</div></div><div class="stat-c"><div class="stat-v">1,000+</div><div class="stat-l">High-speed servers</div></div><div class="stat-c"><div class="stat-v">60+</div><div class="stat-l">Countries covered</div></div><div class="stat-c"><div class="stat-v">4.8★</div><div class="stat-l">Average store rating</div></div></div>
+  </div>
+</section>
+
+<section class="sec sec-alt">
+  <div class="wrap">
+    <div class="sec-c"><div class="sec-lbl">Why [BrandName]</div><h2 class="sec-h2">Built for privacy. Designed for speed.</h2><p class="sec-lead">Everything you need to stay private and unrestricted on every network.</p></div>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-ico">🔒</div><div class="why-t">AES-256 encryption</div><div class="why-d">The same standard used by governments and militaries. Your data stays unreadable on any network.</div></div>
+      <div class="why-card"><div class="why-ico">⚡</div><div class="why-t">Ultra-low latency</div><div class="why-d">WireGuard® protocol delivers fastest VPN speeds. Stream 4K, game, and call without lag.</div></div>
+      <div class="why-card"><div class="why-ico">🕵️</div><div class="why-t">Verified no-log policy</div><div class="why-d">Independently audited by Cure53. We never log browsing history, IP addresses, or timestamps.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-c"><div class="sec-lbl">Setup</div><h2 class="sec-h2">Get protected in 2 minutes</h2></div>
+    <div class="how-row">
+      <div class="how-step"><div class="how-num">1</div><div class="how-t">Create account</div><div class="how-d">Sign up free, start 7-day trial — no card required.</div></div>
+      <div class="how-step"><div class="how-num">2</div><div class="how-t">Choose platform</div><div class="how-d">Pick your OS from the download grid above.</div></div>
+      <div class="how-step"><div class="how-num">3</div><div class="how-t">Install the app</div><div class="how-d">Download and install in under a minute.</div></div>
+      <div class="how-step"><div class="how-num">4</div><div class="how-t">Connect & browse</div><div class="how-d">Tap Quick Connect — you're protected.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-alt">
+  <div class="wrap">
+    <div class="sec-c"><div class="sec-lbl">Plans</div><h2 class="sec-h2">Simple, transparent pricing</h2><p class="sec-lead">All plans include every feature. No paywalled security, no hidden limits.</p></div>
+    <div class="price-grid">
+      <div class="p-card"><div class="p-plan">Monthly</div><div class="p-desc">Pay month-to-month, cancel anytime</div><div class="p-val">$11<span>.99/mo</span></div><div class="p-period">Billed monthly</div><ul class="p-feats"><li><span class="chk">✓</span>5 simultaneous devices</li><li><span class="chk">✓</span>All platforms included</li><li><span class="chk">✓</span>1,000+ servers</li><li><span class="chk">✓</span>24/7 support</li></ul><button class="p-btn">Get started</button></div>
+      <div class="p-card feat"><div class="p-badge">Most popular — Save 67%</div><div class="p-plan">Annual</div><div class="p-desc">Best value for everyday protection</div><div class="p-val">$3<span>.99/mo</span></div><div class="p-period">Billed $47.88/year</div><ul class="p-feats"><li><span class="chk">✓</span>5 simultaneous devices</li><li><span class="chk">✓</span>All platforms included</li><li><span class="chk">✓</span>1,000+ servers</li><li><span class="chk">✓</span>24/7 support</li></ul><button class="p-btn">Start free trial</button></div>
+      <div class="p-card"><div class="p-plan">2-Year</div><div class="p-desc">Maximum savings, long-term peace of mind</div><div class="p-val">$2<span>.49/mo</span></div><div class="p-period">Billed $59.76 every 2 years</div><ul class="p-feats"><li><span class="chk">✓</span>5 simultaneous devices</li><li><span class="chk">✓</span>All platforms included</li><li><span class="chk">✓</span>1,000+ servers</li><li><span class="chk">✓</span>24/7 priority support</li></ul><button class="p-btn">Get started</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap" style="max-width:860px">
+    <div class="sec-c"><div class="sec-lbl">FAQ</div><h2 class="sec-h2">Frequently asked questions</h2></div>
+    <div class="faq-2col">
+      <div class="faq-col">
+        <div class="faq-item"><button class="faq-btn" onclick="tf(this)">Is [BrandName] VPN free?<span class="faq-ico">+</span></button><div class="faq-ans">We offer a 7-day free trial with no credit card required. After that, choose monthly, annual, or 2-year plan.</div></div>
+        <div class="faq-item"><button class="faq-btn" onclick="tf(this)">How many devices can I connect?<span class="faq-ico">+</span></button><div class="faq-ans">All plans include 5 simultaneous connections. Install on unlimited devices, connect any 5 at a time.</div></div>
+        <div class="faq-item"><button class="faq-btn" onclick="tf(this)">Does [BrandName] log my activity?<span class="faq-ico">+</span></button><div class="faq-ans">No. Our strict no-log policy has been independently audited by Cure53. We never store browsing history, IPs, or timestamps.</div></div>
+        <div class="faq-item"><button class="faq-btn" onclick="tf(this)">Which protocol does [BrandName] use?<span class="faq-ico">+</span></button><div class="faq-ans">We support WireGuard®, OpenVPN (TCP/UDP), and IKEv2/IPSec. The app auto-selects the best option.</div></div>
+      </div>
+      <div class="faq-col">
+        <div class="faq-item"><button class="faq-btn" onclick="tf(this)">Can I use it for streaming?<span class="faq-ico">+</span></button><div class="faq-ans">Yes — streaming-optimized servers reliably unblock Netflix, Disney+, HBO Max, BBC iPlayer, and 30+ more.</div></div>
+        <div class="faq-item"><button class="faq-btn" onclick="tf(this)">Is there a money-back guarantee?<span class="faq-ico">+</span></button><div class="faq-ans">All paid plans include a 30-day money-back guarantee. Contact support for a full refund, no questions asked.</div></div>
+        <div class="faq-item"><button class="faq-btn" onclick="tf(this)">Does it work in China or UAE?<span class="faq-ico">+</span></button><div class="faq-ans">Yes — our obfuscated "Stealth" servers bypass deep packet inspection in restrictive regions.</div></div>
+        <div class="faq-item"><button class="faq-btn" onclick="tf(this)">What payment methods are accepted?<span class="faq-ico">+</span></button><div class="faq-ans">Credit/debit cards, PayPal, cryptocurrency (BTC, ETH), and local payment methods in 50+ countries.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-banner"><div class="wrap"><div class="cta-in"><h2>Download [BrandName] VPN Now</h2><p>Start your 7-day free trial. No credit card required. Cancel anytime.</p><div class="cta-btns"><button class="btn-lg btn-lg-p">Get started — It's free</button><button class="btn-lg btn-lg-o">View all plans</button></div><p class="cta-note">30-day money-back guarantee · 5 devices · All platforms</p></div></div></div>
+</div><!-- /main -->
+
+<!-- ══════════════════════ SUB-PAGE SHELL ══════════════════════ -->
+<div id="pg-sub" class="page">
+  <div id="sub-root"></div>
+</div>
+
+<!-- ══════════════════════ FOOTER ══════════════════════ -->
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div class="ft-brand">
+        <div class="logo" style="cursor:default"><div class="logo-icon"><svg viewBox="0 0 16 16"><path d="M8 1L14 4V8C14 11.3 11.3 14 8 15C4.7 14 2 11.3 2 8V4L8 1Z"/></svg></div>[BrandName] VPN</div>
+        <p>Fast, private, and secure internet for everyone. Trusted by 10M+ users worldwide.</p>
+      </div>
+      <div class="ft-col"><h5>Product</h5><ul><li><a>Features</a></li><li><a>Pricing</a></li><li><a>Download</a></li><li><a>Server list</a></li><li><a>What's new</a></li></ul></div>
+      <div class="ft-col"><h5>Resources</h5><ul><li><a>Help center</a></li><li><a>Setup guides</a></li><li><a>Blog</a></li><li><a>What is a VPN?</a></li><li><a>VPN comparison</a></li></ul></div>
+      <div class="ft-col"><h5>Company</h5><ul><li><a>About us</a></li><li><a>Careers</a></li><li><a>Press kit</a></li><li><a>Privacy policy</a></li><li><a>Terms of service</a></li></ul></div>
+    </div>
+    <div class="ft-bot"><div class="ft-copy">© 2025 [BrandName] VPN. All rights reserved.</div><div class="ft-links"><a>Privacy</a><a>Terms</a><a>Cookies</a><a>Sitemap</a></div></div>
+  </div>
+</footer>
+
+<script>
+const DATA = {
+windows:{
+  icon:'🪟',name:'Windows',h1:'VPN for Windows',
+  sub:'Fast & Secure VPN for Windows 10 / 11',
+  lead:'The most complete VPN for Windows. AES-256 encryption, kill switch, split tunneling, and auto-connect — in a clean app that just works.',
+  version:'v4.2.1',size:'82 MB',updated:'June 2025',compat:'Windows 10 / 11 (64-bit)',
+  rating:'4.8/5 · 120,000+ reviews on Microsoft Store',
+  btns:[{t:'⬇ Download for Windows (64-bit)',p:true},{t:'⬇ Download (32-bit)',p:false}],
+  meta:['v4.2.1','82 MB','Win 10/11','Free trial'],
+  mock:{on:'● Connected',loc:'Frankfurt, Germany',up:'128 Mbps',dn:'342 Mbps',srvs:[{f:'🇩🇪',n:'Frankfurt',p:'12 ms',c:'#16A34A'},{f:'🇺🇸',n:'New York',p:'89 ms',c:'#F59E0B'},{f:'🇬🇧',n:'London',p:'32 ms',c:'#16A34A'},{f:'🇯🇵',n:'Tokyo',p:'148 ms',c:'#F59E0B'}]},
+  screens:[{t:'Server map',bars:[{l:'Europe',v:85},{l:'Americas',v:72},{l:'Asia',v:63}]},{t:'Kill switch',desc:'Blocking all traffic',tag:'Active'},{t:'Split tunneling',desc:'3 apps excluded from VPN',tag:'Enabled'}],
+  benefits:[{i:'🛡',t:'Kill switch',d:'Instantly blocks all traffic if VPN drops — no accidental IP leaks, ever.'},{i:'🔀',t:'Split tunneling',d:'Route specific apps outside the VPN for local network access.'},{i:'⚙️',t:'Protocol selection',d:'Choose WireGuard®, OpenVPN, or IKEv2 — or let the app decide automatically.'}],
+  dlbox:{version:'v4.2.1',size:'82 MB',compat:'Windows 10 / 11 (64-bit)',updated:'June 12, 2025'},
+  steps:[{t:'Download the installer',d:'Click the download button above. The .exe file will save to your Downloads folder.',code:null},{t:'Run the installer',d:'Double-click brandname-vpn-setup.exe. Windows may show a UAC prompt — click "Yes" to continue.',code:null},{t:'Sign in to your account',d:'Launch [BrandName] VPN after installation. Log in with your email and password or use "Continue with Google".',code:null},{t:'Choose a server and connect',d:'Click "Quick Connect" for the fastest server, or browse the server list to pick a country manually.',code:null},{t:'Customize your settings',d:'Enable auto-connect on startup, configure split tunneling, or set a preferred protocol in Settings.',code:null}],
+  feats:[{i:'🛡',t:'Kill switch',d:'System-level kill switch prevents any data leaking if VPN disconnects.',b:'Always-on'},{i:'🔀',t:'Split tunneling',d:'Choose which apps bypass the VPN tunnel for maximum flexibility.',b:'Per-app rules'},{i:'🔄',t:'Auto-connect',d:'Automatically connects on startup or when joining untrusted Wi-Fi.',b:'Smart trigger'},{i:'🌐',t:'Protocol selection',d:'WireGuard®, OpenVPN (TCP/UDP), IKEv2 — switch anytime.',b:'4 protocols'},{i:'🚫',t:'Threat protection',d:'Blocks ads, trackers, and malware domains at DNS level.',b:'DNS-level'},{i:'🔁',t:'Multi-hop',d:'Route through 2 servers for double anonymity.',b:'Double VPN'}],
+  usecases:[{i:'🎬',t:'Streaming',d:'Unblock Netflix US, UK, Disney+, Hulu, and 30+ more platforms.'},{i:'🎮',t:'Gaming',d:'Low-latency servers reduce ping. Protect against DDoS attacks.'},{i:'📶',t:'Public Wi-Fi',d:'Encrypts traffic on hotel, airport, and café Wi-Fi automatically.'},{i:'🏠',t:'Remote work',d:'Access corporate resources securely from anywhere in the world.'}],
+  faqs:[['Works on Windows 11?','Yes — fully tested and supported on Windows 10 and Windows 11 (both 32-bit and 64-bit).'],['Does it slow down my internet?','WireGuard® adds less than 5% overhead. Most users notice no speed difference.'],['Can I use it on multiple PCs?','Yes — one subscription covers 5 simultaneous connections across any platforms.'],['Does it work with a firewall?','Yes — [BrandName] VPN is compatible with Windows Defender Firewall and most third-party firewalls.']],
+  related:['mac','android','ios','linux']
+},
+mac:{
+  icon:'🍎',name:'Mac',h1:'VPN for Mac',
+  sub:'Native Apple Silicon VPN for macOS Monterey, Ventura & Sonoma',
+  lead:'Built natively for Apple Silicon — M1, M2, and M3. Up to 40% faster than competitors on Mac with WireGuard® protocol optimized for macOS.',
+  version:'v4.2.1',size:'76 MB',updated:'June 2025',compat:'macOS 12 Monterey or later',
+  rating:'4.7/5 · 48,000+ reviews on Mac App Store',
+  btns:[{t:'⬇ Download for Mac (Apple Silicon)',p:true},{t:'⬇ Download (Intel)',p:false}],
+  meta:['v4.2.1','76 MB','macOS 12+','Apple Silicon native'],
+  mock:{on:'● Connected',loc:'London, United Kingdom',up:'194 Mbps',dn:'478 Mbps',srvs:[{f:'🇬🇧',n:'London',p:'8 ms',c:'#16A34A'},{f:'🇩🇪',n:'Frankfurt',p:'22 ms',c:'#16A34A'},{f:'🇺🇸',n:'New York',p:'94 ms',c:'#F59E0B'},{f:'🇦🇺',n:'Sydney',p:'238 ms',c:'#F87171'}]},
+  screens:[{t:'Apple Silicon',bars:[{l:'Speed',v:95},{l:'Battery',v:92},{l:'RAM usage',v:88}]},{t:'Menu bar',desc:'One-click connect from menu bar',tag:'Native'},{t:'Network monitor',desc:'Real-time traffic stats',tag:'Live'}],
+  benefits:[{i:'🍏',t:'Apple Silicon native',d:'Dedicated M-chip binary. 40% faster speeds and 30% less battery drain than Intel builds.'},{i:'🔒',t:'macOS Network Extension',d:'System-level VPN integration via macOS Network Extension framework for reliable kill switch.'},{i:'🔄',t:'iCloud sync',d:'Server preferences and settings sync across all your Macs via iCloud automatically.'}],
+  dlbox:{version:'v4.2.1',size:'76 MB',compat:'macOS 12 Monterey — macOS 14 Sonoma',updated:'June 12, 2025'},
+  steps:[{t:'Download the .dmg file',d:'Click "Download for Mac" above. Choose Apple Silicon for M1/M2/M3, or Intel for older Macs.',code:null},{t:'Open the disk image',d:'Double-click the downloaded .dmg file. A Finder window will appear with the [BrandName] VPN app icon.',code:null},{t:'Drag to Applications',d:'Drag [BrandName] VPN into the Applications folder shortcut in the Finder window.',code:null},{t:'Launch and sign in',d:'Open [BrandName] VPN from Applications or Launchpad. Sign in with your account credentials.',code:null},{t:'Allow VPN configuration',d:'macOS will ask to allow a VPN configuration — click "Allow". This is required for VPN functionality.',code:null}],
+  feats:[{i:'🍏',t:'Apple Silicon',d:'Native M1/M2/M3 binary for maximum performance on new Macs.',b:'ARM64 native'},{i:'🛡',t:'Kill switch',d:'macOS Network Extension kill switch — works even if app crashes.',b:'System-level'},{i:'🔀',t:'Per-app rules',d:'Set specific apps to always use or bypass the VPN tunnel.',b:'Split tunneling'},{i:'🔄',t:'IKEv2 failover',d:'Automatically switches to IKEv2 if WireGuard® is unavailable.',b:'Automatic'},{i:'🌓',t:'Menu bar widget',d:'Quick connect/disconnect from the macOS menu bar without opening the app.',b:'Menu bar'},{i:'🔔',t:'Notifications',d:'Get notified when VPN connects, disconnects, or switches servers.',b:'macOS native'}],
+  usecases:[{i:'🎬',t:'Streaming',d:'Unblock streaming libraries from 60+ countries on Mac.'},{i:'☕',t:'Public Wi-Fi',d:'Auto-protect on untrusted networks at cafés and airports.'},{i:'💼',t:'Remote work',d:'Secure access to company resources from anywhere.'},{i:'🔐',t:'Privacy',d:'Hide browsing from ISP and prevent data collection.'}],
+  faqs:[['M1, M2, M3 supported?','Yes — we offer a native Apple Silicon build for all M-chip Macs. Dramatically better performance than Rosetta.'],['Minimum macOS version?','macOS 12 Monterey is the minimum. We recommend the latest macOS Sonoma for best performance.'],['Is there an Intel build?','Yes — a separate Intel-optimized build is available for Macs from 2019 and earlier.'],['Does it work with macOS kill switch?','Yes — we use the macOS Network Extension framework for system-level kill switch reliability.']],
+  related:['windows','ios','android','linux']
+},
+android:{
+  icon:'🤖',name:'Android',h1:'VPN for Android',
+  sub:'Lightweight, battery-efficient VPN for Android phones and tablets',
+  lead:'Per-app VPN, threat protection, and home screen widgets. Designed for mobile — under 25 MB with minimal battery impact.',
+  version:'v4.1.8',size:'24 MB',updated:'May 2025',compat:'Android 8.0 (Oreo) or later',
+  rating:'4.5/5 · 890,000+ reviews on Google Play',
+  btns:[{t:'⬇ Get on Google Play',p:true},{t:'⬇ Download APK directly',p:false}],
+  meta:['v4.1.8','24 MB','Android 8.0+','ARM64 & x86_64'],
+  mock:{on:'● Connected',loc:'Singapore, SG',up:'52 Mbps',dn:'118 Mbps',srvs:[{f:'🇸🇬',n:'Singapore',p:'18 ms',c:'#16A34A'},{f:'🇯🇵',n:'Tokyo',p:'42 ms',c:'#16A34A'},{f:'🇺🇸',n:'Los Angeles',p:'142 ms',c:'#F59E0B'},{f:'🇬🇧',n:'London',p:'172 ms',c:'#F87171'}]},
+  screens:[{t:'Per-app VPN',bars:[{l:'Apps protected',v:78},{l:'Excluded apps',v:22},{l:'Battery impact',v:12}]},{t:'Threat protection',desc:'24 trackers blocked today',tag:'Active'},{t:'Quick tile',desc:'One-tap from notification bar',tag:'Widget'}],
+  benefits:[{i:'📱',t:'Per-app VPN',d:'Choose exactly which apps route through VPN. Essential for banking apps that block VPN connections.'},{i:'🔋',t:'Battery efficient',d:'WireGuard® protocol optimized for mobile. Typical battery impact under 3% in connected state.'},{i:'🚫',t:'Threat protection',d:'DNS-level blocking of ads, trackers, phishing sites, and malware before they load.'}],
+  dlbox:{version:'v4.1.8',size:'24 MB',compat:'Android 8.0 (Oreo) and later',updated:'May 28, 2025'},
+  steps:[{t:'Open Google Play Store',d:'Tap "Get on Google Play" above, or search "[BrandName] VPN" directly in the Play Store app.',code:null},{t:'Tap Install',d:'Tap the Install button on the Google Play page. The app is 24 MB and installs in seconds.',code:null},{t:'Open the app and sign in',d:'Launch [BrandName] VPN from your home screen or app drawer. Enter your email and password.',code:null},{t:'Allow VPN permission',d:'Android will ask to set up a VPN connection — tap "OK". This permission is required for VPN functionality.',code:null},{t:'Quick Connect',d:'Tap the large "Quick Connect" button. The app automatically selects the fastest available server.',code:null}],
+  feats:[{i:'📱',t:'Per-app VPN',d:'Select which apps use VPN and which connect directly to the internet.',b:'Split tunneling'},{i:'🚫',t:'Threat protection',d:'DNS-level blocking of ads, trackers, and malware domains.',b:'DNS-level'},{i:'🏠',t:'Home screen widget',d:'Add a quick-connect widget to your home screen for instant protection.',b:'Android widget'},{i:'🔒',t:'Kill switch',d:'Prevents data leaks if VPN connection drops unexpectedly.',b:'Always-on'},{i:'📶',t:'Auto-connect',d:'Automatically connects on untrusted Wi-Fi networks.',b:'Smart trigger'},{i:'🌐',t:'Protocol selection',d:'WireGuard®, OpenVPN, or IKEv2 — choose or let app auto-select.',b:'3 protocols'}],
+  usecases:[{i:'📡',t:'Mobile data',d:'Encrypt 4G/5G traffic and save on roaming costs abroad.'},{i:'☕',t:'Public Wi-Fi',d:'Stay protected on hotel, café, and airport Wi-Fi automatically.'},{i:'🎬',t:'Streaming',d:'Unblock Netflix, YouTube Premium, and geo-restricted apps.'},{i:'🔐',t:'Privacy',d:'Hide location and browsing from apps that track you.'}],
+  faqs:[['Is it on the Play Store?','Yes — search "[BrandName] VPN" or tap the button above. An APK is also available for devices without Play Store.'],['Battery drain concerns?','WireGuard® is optimized for Android. Most users see under 3% additional battery drain when connected.'],['Samsung / Huawei compatible?','Yes — works on all Android 8+ devices including Samsung, Huawei, OnePlus, Xiaomi, and Google Pixel.'],['Does it work on tablets?','Yes — fully optimized for Android tablets with a responsive layout that adapts to larger screens.']],
+  related:['ios','windows','chrome','smarttv']
+},
+ios:{
+  icon:'📱',name:'iOS',h1:'VPN for iOS',
+  sub:'One-tap VPN for iPhone and iPad — WireGuard® & IKEv2',
+  lead:'Seamless iOS integration with on-demand rules, iCloud sync, and Face ID quick-connect. Designed for iPhone and iPad.',
+  version:'v4.1.8',size:'20 MB',updated:'May 2025',compat:'iOS 15 or later (iPhone & iPad)',
+  rating:'4.8/5 · 210,000+ reviews on App Store',
+  btns:[{t:'⬇ Download on the App Store',p:true}],
+  meta:['v4.1.8','20 MB','iOS 15+','iPhone & iPad'],
+  mock:{on:'● Connected',loc:'New York, USA',up:'88 Mbps',dn:'224 Mbps',srvs:[{f:'🇺🇸',n:'New York',p:'12 ms',c:'#16A34A'},{f:'🇺🇸',n:'Los Angeles',p:'68 ms',c:'#16A34A'},{f:'🇬🇧',n:'London',p:'112 ms',c:'#F59E0B'},{f:'🇩🇪',n:'Frankfurt',p:'128 ms',c:'#F59E0B'}]},
+  screens:[{t:'On-demand rules',bars:[{l:'Wi-Fi protected',v:100},{l:'Cellular protected',v:100},{l:'iCloud synced',v:100}]},{t:'Shortcuts',desc:'Siri & iOS Shortcuts support',tag:'Native'},{t:'Face ID',desc:'Secure app access with Face ID',tag:'Enabled'}],
+  benefits:[{i:'⚡',t:'WireGuard® & IKEv2',d:'Best-in-class protocols for iOS. WireGuard® for speed, IKEv2 for rock-solid mobile reliability.'},{i:'📲',t:'On-demand VPN',d:'Automatically activate VPN when specific apps open or when on untrusted Wi-Fi.'},{i:'☁️',t:'iCloud sync',d:'Server preferences sync across all your iPhone and iPad devices via iCloud.'}],
+  dlbox:{version:'v4.1.8',size:'20 MB',compat:'iOS 15.0 and later — iPhone & iPad',updated:'May 30, 2025'},
+  steps:[{t:'Tap Download on the App Store',d:'Tap the button above or search "[BrandName] VPN" in the App Store app on your device.',code:null},{t:'Install and open the app',d:'Tap Get, authenticate with Face ID or Touch ID, and wait for the app to install.',code:null},{t:'Sign in to your account',d:'Open [BrandName] VPN, enter your credentials, or use "Continue with Apple" for one-tap sign-in.',code:null},{t:'Allow VPN configuration',d:'iOS will display a prompt asking to add a VPN configuration. Tap "Allow" — this is required for VPN to work.',code:null},{t:'Connect and customize',d:'Tap Quick Connect for instant protection, or explore on-demand rules in Settings to automate your VPN.',code:null}],
+  feats:[{i:'⚡',t:'WireGuard® native',d:'iOS-native WireGuard® implementation for maximum speed and battery efficiency.',b:'Fastest protocol'},{i:'📲',t:'On-demand rules',d:'Trigger VPN connection automatically based on network type or app.',b:'Automatic'},{i:'🔄',t:'IKEv2 failover',d:'Falls back to IKEv2 seamlessly when WireGuard® cannot connect.',b:'Reliability'},{i:'☁️',t:'iCloud sync',d:'All settings and server preferences sync across iPhone and iPad.',b:'Cross-device'},{i:'🗣',t:'Siri & Shortcuts',d:'Add VPN connect/disconnect to iOS Shortcuts and use with Siri.',b:'iOS native'},{i:'🔑',t:'Face ID / Touch ID',d:'Secure the app with biometric authentication on supported devices.',b:'Biometric lock'}],
+  usecases:[{i:'☕',t:'Public Wi-Fi',d:'Auto-protect at airports, hotels, and cafés without lifting a finger.'},{i:'🎬',t:'Streaming',d:'Unlock Netflix US, BBC iPlayer, Hulu on iPhone from anywhere.'},{i:'🌍',t:'Traveling',d:'Access home content while abroad and avoid geo-restrictions.'},{i:'🔐',t:'Privacy',d:'Stop apps from tracking your real location and IP address.'}],
+  faqs:[['iPad supported?','Yes — the universal app runs natively on all iPad models with a full-screen iPad-optimized layout.'],['Works on older iPhones?','iOS 15 minimum. Compatible with iPhone 6s and later running iOS 15+.'],['Available worldwide?','Yes — available in 150+ App Store regions. In restricted regions, use a different App Store account.'],['Does it use a lot of data?','The VPN protocol overhead is minimal — typically 2-5% extra data usage compared to unprotected browsing.']],
+  related:['android','mac','chrome','smarttv']
+},
+linux:{
+  icon:'🐧',name:'Linux',h1:'VPN for Linux',
+  sub:'CLI & GUI VPN client for Ubuntu, Debian, Fedora and more',
+  lead:'Full terminal control, GUI app, iptables kill switch, and headless server support. The most powerful VPN for Linux power users.',
+  version:'v4.0.5',size:'18 MB',updated:'April 2025',compat:'Ubuntu 20.04+ · Debian 11+ · Fedora 36+',
+  rating:'4.6/5 · Community verified',
+  btns:[{t:'⬇ Download .deb (Ubuntu/Debian)',p:true},{t:'⬇ Download .rpm (Fedora/RHEL)',p:false}],
+  meta:['v4.0.5','18 MB','x86_64 & ARM64','CLI + GUI'],
+  mock:{on:'● Connected',loc:'Amsterdam, NL',up:'312 Mbps',dn:'688 Mbps',srvs:[{f:'🇳🇱',n:'Amsterdam',p:'6 ms',c:'#16A34A'},{f:'🇩🇪',n:'Frankfurt',p:'14 ms',c:'#16A34A'},{f:'🇬🇧',n:'London',p:'28 ms',c:'#16A34A'},{f:'🇺🇸',n:'New York',p:'94 ms',c:'#F59E0B'}]},
+  screens:[{t:'CLI interface',bars:[{l:'WireGuard speed',v:98},{l:'Kernel integration',v:95},{l:'CPU overhead',v:4}]},{t:'iptables rules',desc:'Kill switch via iptables',tag:'Active'},{t:'Systemd service',desc:'Auto-start on boot',tag:'Enabled'}],
+  benefits:[{i:'💻',t:'Full CLI support',d:'All features accessible via command line. Ideal for scripts, cron jobs, headless servers, and power users.'},{i:'🐧',t:'Kernel WireGuard®',d:'Uses the Linux kernel native WireGuard® module for the absolute best performance with zero userspace overhead.'},{i:'🛡',t:'iptables kill switch',d:'System-level kill switch using iptables rules. Works reliably even if the VPN daemon crashes.'}],
+  dlbox:{version:'v4.0.5',size:'18 MB (deb) / 19 MB (rpm)',compat:'Ubuntu 20.04+, Debian 11+, Fedora 36+, Arch (AUR)',updated:'April 18, 2025'},
+  steps:[{t:'Download the package',d:'Choose .deb for Ubuntu/Debian or .rpm for Fedora/RHEL. ARM64 builds are available for Raspberry Pi.',code:null},{t:'Install the package',d:'Run the appropriate command for your distribution:',code:'# Ubuntu/Debian\nsudo dpkg -i brandname-vpn.deb\n\n# Fedora/RHEL\nsudo rpm -i brandname-vpn.rpm'},{t:'Launch the GUI or CLI',d:'Start the GUI app from your application launcher, or use the CLI:',code:'# CLI\nbrandname-vpn\n\n# Or as a daemon\nsudo systemctl start brandname-vpn'},{t:'Log in to your account',d:'Use the GUI login screen, or authenticate via CLI:',code:'brandname-vpn login --email you@example.com'},{t:'Connect to a server',d:'Quick connect to fastest server, or specify a country:',code:'# Quick connect\nbrandname-vpn connect\n\n# Connect to specific country\nbrandname-vpn connect --country DE'}],
+  feats:[{i:'💻',t:'CLI control',d:'Full feature access from terminal. Scriptable, automatable, CI/CD friendly.',b:'Full CLI'},{i:'🛡',t:'iptables kill switch',d:'Kernel-level kill switch via iptables. Cannot be bypassed even on crash.',b:'Kernel-level'},{i:'🐧',t:'Kernel WireGuard®',d:'Uses Linux native WireGuard® module — zero overhead, maximum speed.',b:'Native module'},{i:'⚙️',t:'Systemd service',d:'Run as a systemd service with auto-start on boot support.',b:'systemd'},{i:'🔀',t:'Split tunneling',d:'Route specific apps or subnets outside the VPN via routing rules.',b:'IP routing'},{i:'🖥',t:'Headless support',d:'Full functionality on servers with no display. Perfect for VPS deployments.',b:'Server-ready'}],
+  usecases:[{i:'🖥',t:'Headless server',d:'Run on VPS or home server — manage remotely via CLI.'},{i:'📡',t:'Privacy',d:'Prevent ISP monitoring and government surveillance on Linux.'},{i:'🔬',t:'Security research',d:'Anonymize research traffic and protect sensitive work.'},{i:'⚙️',t:'DevOps / CI',d:'Automate VPN connection in deployment scripts and pipelines.'}],
+  faqs:[['Headless/server install?','Yes — our CLI client works perfectly on headless servers. All GUI features are available via CLI commands.'],['Arch Linux supported?','Community packages for Arch Linux are available via the AUR: brandname-vpn-bin.'],['Does the GUI require GNOME?','The GUI works on GNOME, KDE Plasma, and XFCE. CLI works on any environment including headless.'],['Raspberry Pi compatible?','Yes — ARM64 builds for .deb and .rpm are available on the download page.']],
+  related:['windows','mac','android','ios']
+},
+chrome:{
+  icon:'🌐',name:'Chrome Extension',h1:'VPN Chrome Extension',
+  sub:'Encrypt your browser in one click — WebRTC leak protection included',
+  lead:'Lightweight VPN proxy for Chrome. One-click connect, smart server switching, and WebRTC leak blocking — all from your toolbar.',
+  version:'v2.4.0',size:'2 MB',updated:'June 2025',compat:'Google Chrome 100+ on Windows, Mac, Linux, ChromeOS',
+  rating:'4.6/5 · 85,000+ reviews on Chrome Web Store',
+  btns:[{t:'⬇ Add to Chrome — Free',p:true}],
+  meta:['v2.4.0','~2 MB','Chrome 100+','Free add-on'],
+  mock:{on:'● Protected',loc:'Netherlands, NL',up:'–',dn:'–',srvs:[{f:'🇳🇱',n:'Netherlands',p:'18 ms',c:'#16A34A'},{f:'🇺🇸',n:'United States',p:'82 ms',c:'#F59E0B'},{f:'🇩🇪',n:'Germany',p:'24 ms',c:'#16A34A'},{f:'🇯🇵',n:'Japan',p:'156 ms',c:'#F87171'}]},
+  screens:[{t:'Popup UI',bars:[{l:'Connection speed',v:94},{l:'Leak protection',v:100},{l:'Latency',v:88}]},{t:'Toolbar badge',desc:'Green badge when protected',tag:'Active'},{t:'Location switch',desc:'60+ countries available',tag:'Instant'}],
+  benefits:[{i:'🌐',t:'Browser-level proxy',d:'Encrypts all Chrome traffic without affecting other apps. Ideal when you only need browser protection.'},{i:'🔒',t:'WebRTC leak protection',d:'Prevents your real IP from leaking through WebRTC — a common browser vulnerability that bypasses VPN.'},{i:'⚡',t:'Instant switching',d:'Change server location in one click without disconnecting. Smart location picks the fastest server.'}],
+  dlbox:{version:'v2.4.0',size:'~2 MB',compat:'Chrome 100+ — Windows, Mac, Linux, ChromeOS',updated:'June 5, 2025'},
+  steps:[{t:'Open the Chrome Web Store',d:'Click "Add to Chrome" above. You\'ll be redirected to the [BrandName] VPN page on the Chrome Web Store.',code:null},{t:'Add the extension',d:'Click the blue "Add to Chrome" button, then confirm by clicking "Add extension" in the dialog.',code:null},{t:'Find the extension icon',d:'Click the puzzle piece icon in Chrome\'s toolbar, then pin [BrandName] VPN for easy access.',code:null},{t:'Sign in to your account',d:'Click the [BrandName] icon in your toolbar and sign in with your account email and password.',code:null},{t:'Connect and browse',d:'Click "Quick Connect" or choose a country. The toolbar icon turns green when you\'re protected.',code:null}],
+  feats:[{i:'🔒',t:'WebRTC protection',d:'Blocks WebRTC requests that expose your real IP even through a VPN.',b:'Leak-proof'},{i:'🌍',t:'60+ locations',d:'Choose from servers in 60+ countries with one click.',b:'Global'},{i:'⚡',t:'Smart location',d:'Auto-selects the nearest, fastest server for minimal latency.',b:'Auto-select'},{i:'🚫',t:'Tracker blocking',d:'Blocks third-party trackers and fingerprinting scripts in Chrome.',b:'Privacy'},{i:'🔐',t:'HTTPS upgrade',d:'Forces HTTPS on all sites where available for extra security.',b:'Always HTTPS'},{i:'📊',t:'Usage stats',d:'Track data usage and connection history in the popup.',b:'Dashboard'}],
+  usecases:[{i:'📺',t:'Streaming',d:'Access geo-blocked YouTube, streaming services in Chrome.'},{i:'🛒',t:'Shopping',d:'Compare prices across regions and bypass geo-restricted deals.'},{i:'🔐',t:'Privacy',d:'Browse without being tracked by advertisers and data brokers.'},{i:'💼',t:'Work',d:'Access work tools on restricted networks via Chrome proxy.'}],
+  faqs:[['Does it protect my whole device?','No — the extension only protects traffic within Chrome. Use our desktop app for full-device protection.'],['Requires the desktop app?','No — the extension is fully standalone. Just create an account and sign in.'],['Works on Chromebook?','Yes — this is the recommended VPN solution for Chromebook / ChromeOS users.'],['Is it the same as the desktop app?','The extension is a browser proxy, not a full VPN. For system-wide protection, use the desktop app.']],
+  related:['firefox','windows','mac','android']
+},
+firefox:{
+  icon:'🦊',name:'Firefox Extension',h1:'VPN Firefox Extension',
+  sub:'Private browsing with tracker blocking for Firefox',
+  lead:'Encrypt Firefox traffic, block trackers, and access geo-restricted content. Lightweight extension that respects your privacy.',
+  version:'v2.3.1',size:'2 MB',updated:'May 2025',compat:'Mozilla Firefox 100+ on Windows, Mac, Linux',
+  rating:'4.5/5 · 42,000+ reviews on Firefox Add-ons',
+  btns:[{t:'⬇ Add to Firefox — Free',p:true}],
+  meta:['v2.3.1','~2 MB','Firefox 100+','Free add-on'],
+  mock:{on:'● Protected',loc:'Germany, DE',up:'–',dn:'–',srvs:[{f:'🇩🇪',n:'Germany',p:'14 ms',c:'#16A34A'},{f:'🇳🇱',n:'Netherlands',p:'22 ms',c:'#16A34A'},{f:'🇺🇸',n:'United States',p:'88 ms',c:'#F59E0B'},{f:'🇨🇦',n:'Canada',p:'102 ms',c:'#F59E0B'}]},
+  screens:[{t:'Tracker blocking',bars:[{l:'Trackers blocked',v:87},{l:'Ads removed',v:74},{l:'Fingerprinting',v:100}]},{t:'Dark mode UI',desc:'Matches Firefox theme',tag:'Auto'},{t:'Proxy rotation',desc:'Switch servers instantly',tag:'Instant'}],
+  benefits:[{i:'🦊',t:'Firefox-native UI',d:'The popup matches your Firefox theme and supports system dark mode. Feels like a built-in Firefox feature.'},{i:'🚫',t:'Tracker & ad blocking',d:'Block third-party trackers, fingerprinting scripts, and intrusive ads across every website you visit.'},{i:'🔄',t:'Instant proxy rotation',d:'Switch server location instantly without disconnecting — perfect for testing geo-restricted content.'}],
+  dlbox:{version:'v2.3.1',size:'~2 MB',compat:'Firefox 100+ — Windows, Mac, Linux',updated:'May 20, 2025'},
+  steps:[{t:'Open Firefox Add-ons',d:'Click "Add to Firefox" above. You\'ll be redirected to [BrandName] VPN on the Firefox Add-ons site.',code:null},{t:'Add the extension',d:'Click "Add to Firefox" and then "Add" in the confirmation popup.',code:null},{t:'Find the extension',d:'Click the extensions menu (puzzle piece icon) in Firefox and pin [BrandName] VPN to your toolbar.',code:null},{t:'Sign in to your account',d:'Click the [BrandName] icon and sign in with your account email and password.',code:null},{t:'Connect and browse privately',d:'Click Quick Connect or select a country. Your browser traffic is now encrypted and private.',code:null}],
+  feats:[{i:'🚫',t:'Tracker blocking',d:'Blocks 3rd-party trackers and fingerprinting across all websites.',b:'Privacy first'},{i:'🔄',t:'Proxy rotation',d:'Switch locations instantly without reconnecting.',b:'Instant switch'},{i:'🌓',t:'Dark mode',d:'Auto-matches Firefox light/dark theme preference.',b:'Adaptive UI'},{i:'🔒',t:'WebRTC protection',d:'Blocks WebRTC from leaking your real IP through Firefox.',b:'Leak-proof'},{i:'🌍',t:'60+ locations',d:'Access servers in 60+ countries directly from the toolbar.',b:'Global coverage'},{i:'📊',t:'Stats panel',d:'See blocked trackers, connected time, and bandwidth used.',b:'Dashboard'}],
+  usecases:[{i:'🔐',t:'Privacy',d:'Stop advertisers and data brokers from profiling your browsing.'},{i:'📺',t:'Streaming',d:'Access geo-blocked video content in Firefox.'},{i:'🛡',t:'Security',d:'Protect against man-in-the-middle attacks on public Wi-Fi.'},{i:'🌍',t:'Bypass censorship',d:'Access blocked websites and services in restricted regions.'}],
+  faqs:[['Mobile Firefox supported?','Currently desktop Firefox only. Mobile users should use our Android or iOS app.'],['Does it replace uBlock Origin?','They complement each other. Our extension adds VPN encryption; uBlock adds cosmetic ad blocking.'],['Extension vs desktop app?','Extension protects Firefox traffic only. The desktop app protects all apps and system traffic.'],['Is Firefox Quantum supported?','Yes — any Firefox 100+ (including Firefox ESR 102+) is supported.']],
+  related:['chrome','windows','mac','android']
+},
+smarttv:{
+  icon:'📺',name:'Smart TV',h1:'VPN for Smart TV',
+  sub:'Unlock streaming libraries worldwide on Android TV & Fire TV',
+  lead:'Streaming-optimized servers for 4K playback without buffering. Access Netflix US, BBC iPlayer, Disney+, and 30+ services directly on your TV.',
+  version:'v3.0.2',size:'95 MB',updated:'April 2025',compat:'Android TV 8+ · Amazon Fire OS 5+ · Chromecast with Google TV',
+  rating:'4.4/5 · Available on Google Play & Amazon Appstore',
+  btns:[{t:'⬇ Get on Google Play (Android TV)',p:true},{t:'⬇ Get on Amazon Appstore',p:false}],
+  meta:['v3.0.2','95 MB','Android TV 8+','Fire OS 5+'],
+  mock:{on:'● Connected — Streaming',loc:'United States, US',up:'42 Mbps',dn:'286 Mbps',srvs:[{f:'🇺🇸',n:'US Streaming',p:'88 ms',c:'#16A34A'},{f:'🇬🇧',n:'UK Streaming',p:'104 ms',c:'#16A34A'},{f:'🇯🇵',n:'JP Streaming',p:'148 ms',c:'#F59E0B'},{f:'🇦🇺',n:'AU Streaming',p:'182 ms',c:'#F59E0B'}]},
+  screens:[{t:'Streaming servers',bars:[{l:'Netflix unblocked',v:100},{l:'Disney+',v:100},{l:'BBC iPlayer',v:100}]},{t:'4K bandwidth',desc:'Dedicated 10 Gbps servers',tag:'4K Ready'},{t:'Remote UI',desc:'D-pad friendly navigation',tag:'TV optimized'}],
+  benefits:[{i:'🎬',t:'30+ streaming services',d:'Dedicated server pools for Netflix, Disney+, BBC iPlayer, Hulu, HBO Max, Amazon Prime, and more.'},{i:'🖥',t:'TV-optimized interface',d:'Large-screen UI designed for D-pad and remote navigation. No mouse or keyboard needed on your TV.'},{i:'⚡',t:'4K-ready bandwidth',d:'High-throughput servers with 10 Gbps capacity ensure smooth 4K HDR streaming without buffering.'}],
+  dlbox:{version:'v3.0.2',size:'95 MB',compat:'Android TV 8+, Fire OS 5+, Chromecast with Google TV',updated:'April 22, 2025'},
+  steps:[{t:'Open the app store on your TV',d:'Navigate to Google Play Store (Android TV) or Amazon Appstore (Fire TV) using your remote.',code:null},{t:'Search for [BrandName] VPN',d:'Use the search function and type "[BrandName] VPN". Select the official app with our shield logo.',code:null},{t:'Install the app',d:'Select the app and press the Install/Get button. The download is 95 MB — takes about 30 seconds on fast Wi-Fi.',code:null},{t:'Sign in to your account',d:'Open the app and sign in. Tip: Use a phone/laptop to sign up first, then log in on TV for easier password entry.',code:null},{t:'Choose a streaming server',d:'Select a server labeled "Streaming" for your target region. For Netflix US, pick any US Streaming server.',code:null}],
+  feats:[{i:'🎬',t:'Streaming servers',d:'Dedicated server pools optimized for each major streaming service.',b:'30+ services'},{i:'⚡',t:'4K bandwidth',d:'10 Gbps server capacity for smooth 4K HDR streaming.',b:'4K ready'},{i:'🖥',t:'TV remote UI',d:'Fully D-pad navigable interface. Works with all Android TV and Fire TV remotes.',b:'Remote friendly'},{i:'🗣',t:'Voice remote',d:'Compatible with Google Assistant and Amazon Alexa voice remotes.',b:'Voice control'},{i:'🌍',t:'Global libraries',d:'Access streaming content from 60+ country libraries on your TV.',b:'60+ countries'},{i:'📡',t:'Chromecast support',d:'Also works on Chromecast with Google TV for cast-based streaming.',b:'Chromecast'}],
+  usecases:[{i:'🎬',t:'Netflix',d:'Access Netflix US, UK, Japan, and other region-specific libraries.'},{i:'🏈',t:'Sports',d:'Watch live sports on ESPN+, Sky Sports, DAZN from any country.'},{i:'📺',t:'BBC iPlayer',d:'Stream BBC content outside the UK without restrictions.'},{i:'🎵',t:'Music & podcasts',d:'Access region-locked Spotify, Apple Music, and podcast content.'}],
+  faqs:[['Samsung or LG TV?','Direct app support is for Android TV and Fire TV. Samsung Tizen / LG webOS users can set up via router VPN — we provide a step-by-step guide.'],['Works for Netflix?','Yes — our streaming servers reliably unblock Netflix US, UK, Canada, Japan, and other major libraries.'],['Can I use voice remote?','Yes — fully compatible with Google Assistant (Android TV) and Alexa (Fire TV) voice remotes.'],['Fire TV Stick compatible?','Yes — works on Fire TV Stick (all generations), Fire TV Cube, and Fire TV Edition televisions.']],
+  related:['android','ios','chrome','windows']
+}
+};
+
+const PLAT_META = {windows:{n:'Windows',i:'🪟'},mac:{n:'Mac',i:'🍎'},android:{n:'Android',i:'🤖'},ios:{n:'iOS',i:'📱'},linux:{n:'Linux',i:'🐧'},chrome:{n:'Chrome',i:'🌐'},firefox:{n:'Firefox',i:'🦊'},smarttv:{n:'Smart TV',i:'📺'}};
+
+function showSub(id) {
+  const d = DATA[id];
+  const mock = d.mock;
+  const srvRows = mock.srvs.map(s=>`<div class="am-srv"><span class="am-flag">${s.f}</span><div><div class="am-sn">${s.n}</div><div class="am-ping">${s.p}</div></div><div class="am-pdot" style="background:${s.c}"></div></div>`).join('');
+  const speedsHTML = mock.up !== '–' ? `<div class="am-speeds"><div class="am-spd"><div>Upload</div><div class="am-spd-v">${mock.up}</div></div><div class="am-spd"><div>Download</div><div class="am-spd-v">${mock.dn}</div></div></div>` : '';
+
+  const screensHTML = d.screens.map(s=>`
+    <div class="ss-card">
+      <div class="ss-card-title">${s.t}</div>
+      ${s.bars ? s.bars.map(b=>`<div style="font-size:12px;color:var(--text3);margin-top:4px">${b.l}</div><div class="ss-bar"><div class="ss-bar-fill" style="width:${b.v}%"></div></div>`).join('') : `<div style="font-size:12px;color:var(--text2)">${s.desc}</div>`}
+      ${s.tag ? `<div style="margin-top:8px"><span class="ss-tag">${s.tag}</span></div>` : ''}
+    </div>`).join('');
+
+  const vstepsHTML = d.steps.map((s,i)=>`
+    <div class="vstep">
+      <div class="vstep-num">${i+1}</div>
+      <div class="vstep-body">
+        <div class="vstep-t">${s.t}</div>
+        <div class="vstep-d">${s.d}</div>
+        ${s.code ? `<div class="vstep-code">${s.code.replace(/\n/g,'<br>')}</div>` : ''}
+      </div>
+    </div>`).join('');
+
+  const featsHTML = d.feats.map(f=>`<div class="feat-card"><div class="feat-ico">${f.i}</div><div class="feat-t">${f.t}</div><div class="feat-d">${f.d}</div><div class="feat-badge">${f.b}</div></div>`).join('');
+  const ucHTML = d.usecases.map(u=>`<div class="uc-card"><div class="uc-ico">${u.i}</div><div class="uc-t">${u.t}</div><div class="uc-d">${u.d}</div></div>`).join('');
+  const faqHTML = d.faqs.map(f=>`<div class="faq-item"><button class="faq-btn" onclick="tf(this)">${f[0]}<span class="faq-ico">+</span></button><div class="faq-ans">${f[1]}</div></div>`).join('');
+  const relHTML = d.related.map(r=>`<div class="rel-card" onclick="showSub('${r}')"><span class="rel-ico">${PLAT_META[r].i}</span><div><div class="rel-name">VPN for ${PLAT_META[r].n}</div><div class="rel-os">${DATA[r].compat.split('·')[0].trim()}</div></div><span class="rel-arr">→</span></div>`).join('');
+  const dlBtnsHTML = d.btns.map(b=>`<button class="${b.p?'dl-btn-p':'dl-btn-s'}">${b.t}</button>`).join('');
+  const ctaBtnsHTML = d.btns.map(b=>`<button class="btn-lg ${b.p?'btn-lg-p':'btn-lg-o'}" style="${!b.p?'border:1px solid var(--border)':''}">${b.t}</button>`).join('');
+  const metaHTML = d.meta.map(m=>`<span class="meta-pill">${m}</span>`).join('');
+
+  document.getElementById('sub-root').innerHTML = `
+  <div class="sh">
+    <div class="wrap">
+      <div class="crumb"><span class="cl" onclick="showMain()">Download</span><span class="crumb-sep">›</span><span style="color:var(--text)">VPN for ${d.name}</span></div>
+      <div class="sh-in">
+        <div>
+          <div class="sh-platform-badge">${d.icon} ${d.name}</div>
+          <h1>${d.h1}</h1>
+          <p class="sh-sub">${d.sub}</p>
+          <p style="font-size:15px;color:var(--text2);line-height:1.65;margin-bottom:28px">${d.lead}</p>
+          <div class="sh-dl-row">${d.btns.map(b=>`<button class="${b.p?'dl-p':'dl-s'}">${b.t}</button>`).join('')}</div>
+          <div class="meta-row">${metaHTML}</div>
+          <div class="sh-rating"><span class="stars">★★★★★</span><span>${d.rating}</span></div>
+        </div>
+        <div class="app-mock">
+          <div class="am-bar"><div class="am-dot" style="background:#F87171"></div><div class="am-dot" style="background:#FBBF24"></div><div class="am-dot" style="background:#34D399"></div><div class="am-ttl">[BrandName] — ${d.name}</div></div>
+          <div class="am-body">
+            <div class="am-screen">
+              <div class="am-conn">${mock.on}</div>
+              <div class="am-loc">${mock.loc} · WireGuard®</div>
+              ${speedsHTML}
+            </div>
+            <div class="am-srvs">${srvRows}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="ss-wrap">
+        <div class="ss-inner">
+          <div style="font-size:13px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px">App preview — ${d.name}</div>
+          <div class="ss-row">${screensHTML}</div>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 380px;gap:40px;align-items:start">
+        <div>
+          <div class="sec-lbl" style="margin-bottom:8px">Download details</div>
+          <div class="dl-box">
+            <div class="dl-box-head"><div class="dl-box-ico">${d.icon}</div><div><div class="dl-box-t">${d.h1}</div><div class="dl-box-sub">${d.sub}</div></div></div>
+            <div class="dl-box-meta">
+              <div class="dl-meta-item"><div class="dl-meta-lbl">Version</div><div class="dl-meta-val">${d.dlbox.version}</div></div>
+              <div class="dl-meta-item"><div class="dl-meta-lbl">File size</div><div class="dl-meta-val">${d.dlbox.size}</div></div>
+              <div class="dl-meta-item"><div class="dl-meta-lbl">OS</div><div class="dl-meta-val">${d.dlbox.compat.split(',')[0]}</div></div>
+              <div class="dl-meta-item"><div class="dl-meta-lbl">Updated</div><div class="dl-meta-val">${d.dlbox.updated}</div></div>
+            </div>
+            <div class="dl-btns-row">${dlBtnsHTML}</div>
+          </div>
+        </div>
+        <div>
+          <div class="sec-lbl" style="margin-bottom:8px">Platform benefits</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            ${d.benefits.map(b=>`<div class="ben-card" style="padding:16px;display:flex;gap:12px;align-items:flex-start"><div style="font-size:20px;flex-shrink:0">${b.i}</div><div><div class="ben-t" style="font-size:14px">${b.t}</div><div class="ben-d" style="font-size:13px">${b.d}</div></div></div>`).join('')}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec-alt">
+    <div class="wrap">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px">
+        <div>
+          <div class="sec-lbl">How to install</div>
+          <h2 class="sec-h2" style="margin-bottom:32px">Step-by-step guide</h2>
+          <div class="vsteps">${vstepsHTML}</div>
+        </div>
+        <div>
+          <div class="sec-lbl">Use cases</div>
+          <h2 class="sec-h2" style="margin-bottom:24px">What you can do</h2>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            ${d.usecases.map(u=>`<div style="display:flex;gap:14px;align-items:flex-start;padding:14px;border:1px solid var(--border);border-radius:var(--r);background:#fff"><div style="font-size:22px;flex-shrink:0">${u.i}</div><div><div style="font-size:14px;font-weight:700;margin-bottom:4px">${u.t}</div><div style="font-size:13px;color:var(--text2)">${u.d}</div></div></div>`).join('')}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-c"><div class="sec-lbl">Features</div><h2 class="sec-h2">Everything included on ${d.name}</h2><p class="sec-lead">Every feature available on every plan — no paywalled security.</p></div>
+      <div class="feat-grid-3">${featsHTML}</div>
+    </div>
+  </section>
+
+  <section class="sec sec-alt">
+    <div class="wrap" style="max-width:820px">
+      <div class="sec-c"><div class="sec-lbl">FAQ</div><h2 class="sec-h2">Questions about ${d.name}</h2></div>
+      <div class="faq-col">${faqHTML}</div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-c"><div class="sec-lbl">Other platforms</div><h2 class="sec-h2">Also available on</h2><p class="sec-lead">One account works across all your devices simultaneously.</p></div>
+      <div class="rel-row">${relHTML}</div>
+    </div>
+  </section>
+
+  <div class="cta-banner"><div class="wrap"><div class="cta-in"><h2>${d.h1} — Download Now</h2><p>Start your 7-day free trial. No credit card required. Cancel anytime.</p><div class="cta-btns">${ctaBtnsHTML}</div><p class="cta-note">30-day money-back guarantee · 5 simultaneous devices · All platforms</p></div></div></div>`;
+
+  document.getElementById('pg-main').classList.remove('on');
+  document.getElementById('pg-sub').classList.add('on');
+  window.scrollTo(0,0);
+}
+
+function showMain() {
+  document.getElementById('pg-sub').classList.remove('on');
+  document.getElementById('pg-main').classList.add('on');
+  window.scrollTo(0,0);
+}
+
+function tf(btn) {
+  const ans = btn.nextElementSibling;
+  const ico = btn.querySelector('.faq-ico');
+  const op = ans.classList.toggle('op');
+  ico.classList.toggle('op', op);
+  ico.textContent = op ? '−' : '+';
+}
+</script>
+</body>
+</html>
